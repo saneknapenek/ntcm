@@ -19,6 +19,10 @@ class Number:
         self.__value = inti_value
         self.system = system
 
+    @property
+    def value(self):
+        return self.__value
+
     @classmethod
     def init(cls, value: str) -> list[int]:
         return list(map(lambda d: int(ord(d) - cls.ASCII_TRANSLATE) if not d.isdigit() else int(d), value))
@@ -192,7 +196,6 @@ class Number:
         return decimal_num
     
     def to_any(self, system) -> None:
-            
         result = []
         dec = self.to_decimal()
         while dec > 0:
